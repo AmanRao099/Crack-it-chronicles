@@ -1,0 +1,128 @@
+/* Calendar.css */
+
+.calendar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f4f7fb;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  margin: auto;
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+}
+
+.back-button,
+.home-button {
+  font-size: 28px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.back-button:hover,
+.home-button:hover {
+  color: #25d366;
+}
+
+.calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.calendar-day {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  color: #444;
+  transition: background-color 0.3s, transform 0.2s ease;
+}
+
+.calendar-day:hover {
+  background-color: #25d366;
+  color: white;
+  transform: scale(1.1);
+}
+
+.calendar-day.selected {
+  background-color: #075e54;
+  color: white;
+}
+
+.calendar-day.disabled {
+  background-color: #f4f7fb;
+  color: #d3d3d3;
+}
+
+.calendar-days-header {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.day-header {
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  text-align: center;
+}
+
+.selected-date {
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #444;
+  text-align: center;
+}
+
+/* Notes Section */
+.notes-container {
+  width: 100%;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+}
+
+.notes-container h4 {
+  font-size: 18px;
+  color: #333;
+}
+
+.note {
+  font-size: 14px;
+  color: #444;
+  padding: 10px;
+  background-color: #e5e5e5;
+  border-radius: 10px;
+  margin-top: 10px;
+}

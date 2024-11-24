@@ -3,7 +3,8 @@ import Dialer from "./components/Dialer";
 import Gallery from "./components/Gallery";
 import Calculator from "./components/Calculator";
 import LockScreen from "./components/LockScreen";
-import Messages from "./components/Messages"; // Import Messages component
+import Messages from "./components/Messages";
+import Calendar from "./components/Calender"; // Import the Calendar component
 import "./App.css";
 
 const App = () => {
@@ -118,6 +119,10 @@ const App = () => {
               navigateHome={navigateHome}
               navigateBack={navigateBack}
             />
+          )}
+
+          {currentScreen === "calendar" && (
+            <Calendar navigateBack={navigateBack} />
           )}
 
           {currentScreen === "vault" && (
