@@ -18,15 +18,10 @@ const Dialer = () => {
     }
   };
 
-  // Delete the last digit
-  const handleDelete = () => {
-    setPhoneNumber((prev) => prev.slice(0, -1));
-  };
+
 
   // Clear the number
-  const handleClear = () => {
-    setPhoneNumber("");
-  };
+
 
   // Simulate making a call
   const makeCall = () => {
