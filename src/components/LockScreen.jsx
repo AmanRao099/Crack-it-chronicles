@@ -21,7 +21,7 @@ const LockScreen = ({ unlockPhone }) => {
   };
 
   const handleUnlock = () => {
-    const passcode = "1234"; // Set your passcode here
+    const passcode = "781664"; // Set your passcode here
     if (inputValue === passcode) {
       unlockPhone(); // Unlock the phone if the passcode is correct
     } else {
