@@ -1,0 +1,77 @@
+/* LockScreen.css */
+.lock-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    color: white;
+    position: absolute; /* Positioning it within the phone */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden; /* Prevent overflow */
+  }
+  
+  .time {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-family: "Arial", sans-serif;
+  }
+  
+  .lock-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .lock-input {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 20px; /* Give some space below the input */
+    width: 80%;
+    max-width: 250px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+  }
+  
+  .unlock-button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 14px;
+  }
+  
+  /* For small screens, ensure everything scales properly */
+  @media (max-width: 600px) {
+    .time {
+      font-size: 36px;
+    }
+  
+    .lock-input {
+      font-size: 16px;
+      padding: 8px;
+      width: 70%;
+    }
+  
+    .unlock-button {
+      font-size: 16px;
+      padding: 8px 16px;
+    }
+  }
+  
