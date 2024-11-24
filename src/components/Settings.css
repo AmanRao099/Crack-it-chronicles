@@ -1,0 +1,179 @@
+
+  
+  /* Settings page container */
+  .settings-container {
+    width: 100%;
+    max-width: 500px; /* Limiting the width to make it look more contained */
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    overflow: hidden; /* Prevents content from overflowing the container */
+  }
+  
+  /* Header styles */
+  .settings h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+    background: none;
+    text-align: center;
+  }
+  
+  /* Settings options container */
+  .settings-options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Individual setting options */
+  .settings-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .settings-option:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .settings-option p {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .settings-option button {
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .settings-option button:hover {
+    background-color: #45a049;
+  }
+  
+  .settings-option button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Navigation buttons */
+  .settings-navigation {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+  }
+  
+  .settings-navigation button {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .settings-navigation button:hover {
+    background-color: #0056b3;
+  }
+  
+  .settings-navigation button:active {
+    transform: scale(0.98);
+  }
+  
+  .settings-navigation button:focus {
+    outline: none;
+  }
+  
+  /* Light Background */
+  .settings {
+    background: #f8f8f8; /* Soft light background */
+  }
+  
+  /* Subtle Shadows and Hover Effects */
+  .settings-option, .settings-navigation button {
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .settings-option:hover, .settings-navigation button:hover {
+    transform: translateY(-2px);
+  }
+  .screen.settings {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #f8f8f8; /* Soft background color */
+    height: 100vh;
+    overflow: hidden; /* Prevents scroll on the whole screen */
+  }
+  
+  
+  
+  .settings-options-container {
+    flex-grow: 1;
+    overflow-y: auto; /* Makes only the options section scrollable */
+  }
+  
+  .settings-options {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-bottom: 20px; /* Adds space at the bottom for smooth scrolling */
+  }
+  
+  .settings-option {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff; /* White background for each option */
+    padding: 12px 20px;
+    border-radius: 8px; /* Rounded corners for each option */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+    transition: box-shadow 0.3s ease-in-out;
+  }
+  
+  .settings-option p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #555; /* Subtle text color */
+    margin: 0;
+  }
+  
+  .settings-option button {
+    background-color: #007BFF; /* Soft blue for button */
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px; /* Pill shape button */
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .settings-option button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  .settings-option:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Slight increase in shadow on hover */
+  }
+  

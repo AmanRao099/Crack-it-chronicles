@@ -34,8 +34,12 @@ body {
 }
 
 h2 {
-  text-align: center;
-  margin-top: 10px;
+ 
+    text-align: center;
+    margin-top: 10px;
+    background: none; /* Remove the background */
+  
+  
 }
 
 /* App Grid Layout (3x3 grid for apps) */
@@ -514,6 +518,7 @@ h2 {
   font-size: 24px;
   font-weight: 600;
   color: #333;
+  background: none;
   text-align: center;
   margin-bottom: 20px;
   letter-spacing: 1px;
@@ -664,6 +669,7 @@ h2 {
   font-size: 24px;
   font-weight: 600;
   margin-bottom: 20px;
+  background: none;
   color: #444; /* Subtle, neutral color */
   line-height: 1.5;
   max-width: 80%; /* Restrict width for readability */
@@ -721,6 +727,7 @@ h2 {
   .password-page h2 {
     font-size: 20px;
     margin-bottom: 15px;
+    background: none;
   }
 
   .password-page input {

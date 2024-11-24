@@ -4,12 +4,14 @@ import Gallery from "./components/Gallery";
 import Calculator from "./components/Calculator";
 import LockScreen from "./components/LockScreen";
 import Messages from "./components/Messages";
-import Calender from "./components/Calender";
+import Calender from "./components/Calendar";
 import News from "./components/News";
 import Clock from "./components/Clock";
 import Notes from "./components/Notes";
 import PasswordPage from "./components/PasswordPage"; // Import PasswordPage for password prompts
 import "./App.css";
+import Settings from "./components/Settings";
+import Calendar from "./components/Calendar";
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState("home");
@@ -137,12 +139,14 @@ const App = () => {
             <Dialer navigateHome={navigateHome} navigateBack={navigateBack} showRecentTabs={showRecentTabs} />
           )}
           {currentScreen === "gallery" && <Gallery />}
+          {currentScreen === "calendar" && <Calendar navigateHome={navigateHome} navigateBack={navigateBack} />}
           {currentScreen === "messages" && <Messages navigateHome={navigateHome} navigateBack={navigateBack} />}
-          {currentScreen === "calender" && <Calender navigateBack={navigateBack} />}
+          {currentScreen === "calculator" && <Calculator navigateBack={navigateBack} />}
           {currentScreen === "news" && <News navigateHome={navigateHome} navigateBack={navigateBack} />}
           {currentScreen === "clock" && <Clock navigateBack={navigateBack} />}
           {currentScreen === "notes" && <Notes navigateBack={navigateBack} />}
           {currentScreen === "vault" && <div className="screen vault">Vault Content</div>}
+          {currentScreen === "settings" && <Settings navigateBack={navigateBack} />}
 
           {/* Recent Tabs Screen */}
           {currentScreen === "recent-tabs" && (
