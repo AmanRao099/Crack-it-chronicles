@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import Dialer from "./components/Dialer";
 import Gallery from "./components/Gallery";
+import Calculator from "./components/Calculator";
 import LockScreen from "./components/LockScreen"; // Import the LockScreen component
 import "./App.css";
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState("home");
   const [isLocked, setIsLocked] = useState(true); // Add state for lock screen
+  const [vaultUnlocked, setVaultUnlocked] = useState(false); // Track if the vault is unlocked
 
   const unlockPhone = () => {
     setIsLocked(false); // Unlock the phone when the correct passcode is entered
@@ -27,7 +29,18 @@ const App = () => {
   };
 
   const openApp = (app) => {
-    setCurrentScreen(app);
+    if (app === "calculator" && vaultUnlocked) {
+      // If vault is unlocked, show the vault screen
+      setCurrentScreen("vault");
+    } else {
+      setCurrentScreen(app);
+    }
+  };
+
+  const unlockVault = () => {
+    // Function to unlock the vault (triggered by entering the secret code in Calculator)
+    setVaultUnlocked(true);
+    alert("Vault Unlocked!");
   };
 
   return (
@@ -90,7 +103,23 @@ const App = () => {
             />
           )}
 
+          {currentScreen === "calculator" && (
+            <Calculator
+              navigateHome={navigateHome}
+              navigateBack={navigateBack}
+              unlockVault={unlockVault} // Pass unlockVault function to the Calculator component
+            />
+          )}
+
           {currentScreen === "gallery" && <Gallery />} {/* Add Gallery Screen */}
+
+          {currentScreen === "vault" && (
+            <div className="screen vault">
+              <h2>Vault</h2>
+              <p>Welcome to your hidden vault! You can store files and other data here.</p>
+              {/* Your Vault content here */}
+            </div>
+          )}
 
           {/* Navigation Bar */}
           <div className="nav-bar">
