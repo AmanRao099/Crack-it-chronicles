@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Dialer from "./components/Dialer";
 import Gallery from "./components/Gallery";
 import Calculator from "./components/Calculator";
-import LockScreen from "./components/LockScreen"; // Import the LockScreen component
+import LockScreen from "./components/LockScreen";
+import Messages from "./components/Messages"; // Import Messages component
 import "./App.css";
 
 const App = () => {
@@ -38,7 +39,6 @@ const App = () => {
   };
 
   const unlockVault = () => {
-    // Function to unlock the vault (triggered by entering the secret code in Calculator)
     setVaultUnlocked(true);
     alert("Vault Unlocked!");
   };
@@ -107,17 +107,23 @@ const App = () => {
             <Calculator
               navigateHome={navigateHome}
               navigateBack={navigateBack}
-              unlockVault={unlockVault} // Pass unlockVault function to the Calculator component
+              unlockVault={unlockVault}
             />
           )}
 
           {currentScreen === "gallery" && <Gallery />} {/* Add Gallery Screen */}
 
+          {currentScreen === "messages" && (
+            <Messages
+              navigateHome={navigateHome}
+              navigateBack={navigateBack}
+            />
+          )}
+
           {currentScreen === "vault" && (
             <div className="screen vault">
               <h2>Vault</h2>
               <p>Welcome to your hidden vault! You can store files and other data here.</p>
-              {/* Your Vault content here */}
             </div>
           )}
 
