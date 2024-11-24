@@ -1,0 +1,101 @@
+.news-screen {
+    padding: 20px;
+  }
+  
+  .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .news-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .news-header button {
+    font-size: 18px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .news-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .news-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .news-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .news-item p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .news-date {
+    font-size: 14px;
+    color: #888;
+  }
+  .news-screen {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .news-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .news-header h2 {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .news-content {
+    overflow-y: auto; /* Enables vertical scrolling */
+    max-height: 80vh; /* Limits the height of the news content */
+    padding-right: 10px; /* Prevents the scrollbar from covering content */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .news-item {
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .news-item h3 {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .news-item p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .news-date {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  

@@ -5,6 +5,8 @@ import Calculator from "./components/Calculator";
 import LockScreen from "./components/LockScreen";
 import Messages from "./components/Messages";
 import Calendar from "./components/Calender"; // Import the Calendar component
+import News from "./components/News"; // Import the News component
+import Clock from "./components/Clock"; // Import the Clock component
 import "./App.css";
 
 const App = () => {
@@ -92,6 +94,10 @@ const App = () => {
                   <span>📰</span>
                   <p>News</p>
                 </div>
+                <div className="app-card" onClick={() => openApp("notes")}>
+                  <span>📝</span>
+                  <p>Notes</p>
+                </div>
               </div>
             </div>
           )}
@@ -112,7 +118,7 @@ const App = () => {
             />
           )}
 
-          {currentScreen === "gallery" && <Gallery />} {/* Add Gallery Screen */}
+          {currentScreen === "gallery" && <Gallery />}
 
           {currentScreen === "messages" && (
             <Messages
@@ -123,6 +129,14 @@ const App = () => {
 
           {currentScreen === "calendar" && (
             <Calendar navigateBack={navigateBack} />
+          )}
+
+          {currentScreen === "news" && (
+            <News navigateHome={navigateHome} navigateBack={navigateBack} />
+          )}
+
+          {currentScreen === "clock" && (
+            <Clock navigateBack={navigateBack} />
           )}
 
           {currentScreen === "vault" && (

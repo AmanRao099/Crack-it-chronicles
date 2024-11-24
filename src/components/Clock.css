@@ -1,0 +1,131 @@
+/* src/components/Clock.css */
+
+/* Overall container for the clock */
+.clock-container {
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Header styling */
+  .clock-header {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling the clock face */
+  .clock-face {
+    background-color: #333;
+    color: #fff;
+    padding: 30px;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+  }
+  
+  .time {
+    font-size: 3rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+  
+  /* Styling the alarms section */
+  .alarms-section {
+    width: 100%;
+    margin-top: 20px;
+    text-align: left;
+    padding: 10px 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Header for alarms */
+  .alarms-header {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+  }
+  
+  /* Container for all alarms */
+  .alarms-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0;
+  }
+  
+  /* Styling each alarm item */
+  .alarm-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    padding: 15px;
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .alarm-item:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Styling the alarm time and status */
+  .alarm-time {
+    font-size: 1.3rem;
+    font-weight: bold;
+  }
+  
+  .alarm-status {
+    font-size: 1rem;
+    font-weight: bold;
+  }
+  
+  /* Active and triggered status color */
+  .active-status {
+    color: green;
+  }
+  
+  .triggered-status {
+    color: red;
+  }
+  
+  /* Responsiveness: Ensure that all items remain centered on smaller screens */
+  @media (max-width: 600px) {
+    .clock-container {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    .clock-face {
+      width: 180px;
+      height: 180px;
+    }
+  
+    .time {
+      font-size: 2.5rem;
+    }
+  
+    .alarm-item {
+      width: 90%;
+    }
+  }
+  
