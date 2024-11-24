@@ -8,6 +8,7 @@ import Calendar from "./components/Calender"; // Import the Calendar component
 import News from "./components/News"; // Import the News component
 import Clock from "./components/Clock"; // Import the Clock component
 import "./App.css";
+import Notes from "./components/Notes";
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState("home");
@@ -137,6 +138,9 @@ const App = () => {
 
           {currentScreen === "clock" && (
             <Clock navigateBack={navigateBack} />
+          )}
+          {currentScreen === "notes" && (
+            <Notes navigateBack={navigateBack} />
           )}
 
           {currentScreen === "vault" && (
