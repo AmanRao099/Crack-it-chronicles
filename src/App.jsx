@@ -4,19 +4,31 @@ import Gallery from "./components/Gallery";
 import Calculator from "./components/Calculator";
 import LockScreen from "./components/LockScreen";
 import Messages from "./components/Messages";
-import Calendar from "./components/Calender"; // Import the Calendar component
-import News from "./components/News"; // Import the News component
-import Clock from "./components/Clock"; // Import the Clock component
-import "./App.css";
+import Calender from "./components/Calender";
+import News from "./components/News";
+import Clock from "./components/Clock";
 import Notes from "./components/Notes";
+import PasswordPage from "./components/PasswordPage"; // Import PasswordPage for password prompts
+import "./App.css";
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState("home");
-  const [isLocked, setIsLocked] = useState(true); // Add state for lock screen
-  const [vaultUnlocked, setVaultUnlocked] = useState(false); // Track if the vault is unlocked
+  const [isLocked, setIsLocked] = useState(true);
+  const [vaultUnlocked, setVaultUnlocked] = useState(false);
+  const [recentTabs, setRecentTabs] = useState([]);
+  const [passwordRequiredForApp, setPasswordRequiredForApp] = useState(null); // Track which app needs password
+  const [enteredPassword, setEnteredPassword] = useState(""); // Store entered password
+  const [passwordError, setPasswordError] = useState(""); // Store error message for incorrect password
+
+  // Passwords for each app
+  const appPasswords = {
+    gallery: "1234",
+    messages: "5678",
+    notes: "abcd",
+  };
 
   const unlockPhone = () => {
-    setIsLocked(false); // Unlock the phone when the correct passcode is entered
+    setIsLocked(false);
   };
 
   const navigateHome = () => {
@@ -30,34 +42,42 @@ const App = () => {
   };
 
   const showRecentTabs = () => {
-    alert("Showing recent tabs...");
+    setCurrentScreen("recent-tabs");
   };
 
   const openApp = (app) => {
-    if (app === "calculator" && vaultUnlocked) {
-      // If vault is unlocked, show the vault screen
-      setCurrentScreen("vault");
+    if (appPasswords[app]) {
+      setPasswordRequiredForApp(app); // Set the app that needs a password
+      setCurrentScreen("password"); // Show password page
     } else {
       setCurrentScreen(app);
+      setRecentTabs((prevTabs) => {
+        const updatedTabs = [app, ...prevTabs];
+        return updatedTabs.slice(0, 5);
+      });
     }
   };
 
-  const unlockVault = () => {
-    setVaultUnlocked(true);
-    alert("Vault Unlocked!");
+  const checkPassword = (password) => {
+    if (password === appPasswords[passwordRequiredForApp]) {
+      setPasswordRequiredForApp(null); // Clear the required password
+      setEnteredPassword(""); // Clear entered password
+      setPasswordError(""); // Clear any existing error
+      setCurrentScreen(passwordRequiredForApp); // Open the app
+    } else {
+      setPasswordError("Incorrect password!"); // Set the error message
+    }
   };
 
   return (
     <div className="phone">
       {isLocked ? (
-        // Show the lock screen if the phone is locked
         <LockScreen unlockPhone={unlockPhone} />
       ) : (
         <div className="phone-screen">
           {currentScreen === "home" && (
             <div className="screen home">
               <h2>Home Screen</h2>
-              {/* 3x3 Grid of Apps */}
               <div className="app-grid">
                 <div className="app-card" onClick={() => openApp("dialer")}>
                   <span>📞</span>
@@ -103,50 +123,38 @@ const App = () => {
             </div>
           )}
 
+          {/* Password Screen */}
+          {currentScreen === "password" && (
+            <PasswordPage
+              checkPassword={checkPassword}
+              enteredPassword={enteredPassword}
+              setEnteredPassword={setEnteredPassword}
+              passwordError={passwordError} // Pass error message to PasswordPage
+            />
+          )}
+
           {currentScreen === "dialer" && (
-            <Dialer
-              navigateHome={navigateHome}
-              navigateBack={navigateBack}
-              showRecentTabs={showRecentTabs}
-            />
+            <Dialer navigateHome={navigateHome} navigateBack={navigateBack} showRecentTabs={showRecentTabs} />
           )}
-
-          {currentScreen === "calculator" && (
-            <Calculator
-              navigateHome={navigateHome}
-              navigateBack={navigateBack}
-              unlockVault={unlockVault}
-            />
-          )}
-
           {currentScreen === "gallery" && <Gallery />}
+          {currentScreen === "messages" && <Messages navigateHome={navigateHome} navigateBack={navigateBack} />}
+          {currentScreen === "calender" && <Calender navigateBack={navigateBack} />}
+          {currentScreen === "news" && <News navigateHome={navigateHome} navigateBack={navigateBack} />}
+          {currentScreen === "clock" && <Clock navigateBack={navigateBack} />}
+          {currentScreen === "notes" && <Notes navigateBack={navigateBack} />}
+          {currentScreen === "vault" && <div className="screen vault">Vault Content</div>}
 
-          {currentScreen === "messages" && (
-            <Messages
-              navigateHome={navigateHome}
-              navigateBack={navigateBack}
-            />
-          )}
-
-          {currentScreen === "calendar" && (
-            <Calendar navigateBack={navigateBack} />
-          )}
-
-          {currentScreen === "news" && (
-            <News navigateHome={navigateHome} navigateBack={navigateBack} />
-          )}
-
-          {currentScreen === "clock" && (
-            <Clock navigateBack={navigateBack} />
-          )}
-          {currentScreen === "notes" && (
-            <Notes navigateBack={navigateBack} />
-          )}
-
-          {currentScreen === "vault" && (
-            <div className="screen vault">
-              <h2>Vault</h2>
-              <p>Welcome to your hidden vault! You can store files and other data here.</p>
+          {/* Recent Tabs Screen */}
+          {currentScreen === "recent-tabs" && (
+            <div className="recent-tabs-page">
+              <h2>Recent Tabs</h2>
+              <ul className="recent-tabs-list">
+                {recentTabs.length === 0 ? (
+                  <li>No recent tabs</li>
+                ) : (
+                  recentTabs.map((tab, index) => <li key={index}>{tab}</li>)
+                )}
+              </ul>
             </div>
           )}
 
