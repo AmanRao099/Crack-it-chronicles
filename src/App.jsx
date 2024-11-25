@@ -4,25 +4,23 @@ import Gallery from "./components/Gallery";
 import Calculator from "./components/Calculator";
 import LockScreen from "./components/LockScreen";
 import Messages from "./components/Messages";
-import Calender from "./components/Calendar";
+import Calendar from "./components/Calendar";
 import News from "./components/News";
 import Clock from "./components/Clock";
 import Notes from "./components/Notes";
-import PasswordPage from "./components/PasswordPage"; // Import PasswordPage for password prompts
-import "./App.css";
+import PasswordPage from "./components/PasswordPage";
+import Vault from "./components/Vault"; // Import Vault component
 import Settings from "./components/Settings";
-import Calendar from "./components/Calendar";
+import "./App.css";
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState("home");
   const [isLocked, setIsLocked] = useState(true);
-  const [vaultUnlocked, setVaultUnlocked] = useState(false);
   const [recentTabs, setRecentTabs] = useState([]);
-  const [passwordRequiredForApp, setPasswordRequiredForApp] = useState(null); // Track which app needs password
-  const [enteredPassword, setEnteredPassword] = useState(""); // Store entered password
-  const [passwordError, setPasswordError] = useState(""); // Store error message for incorrect password
+  const [passwordRequiredForApp, setPasswordRequiredForApp] = useState(null);
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
-  // Passwords for each app
   const appPasswords = {
     gallery: "1234",
     messages: "5678",
@@ -38,9 +36,7 @@ const App = () => {
   };
 
   const navigateBack = () => {
-    if (currentScreen !== "home") {
-      setCurrentScreen("home");
-    }
+    setCurrentScreen("home");
   };
 
   const showRecentTabs = () => {
@@ -49,26 +45,35 @@ const App = () => {
 
   const openApp = (app) => {
     if (appPasswords[app]) {
-      setPasswordRequiredForApp(app); // Set the app that needs a password
-      setCurrentScreen("password"); // Show password page
+      setPasswordRequiredForApp(app);
+      setCurrentScreen("password");
     } else {
       setCurrentScreen(app);
-      setRecentTabs((prevTabs) => {
-        const updatedTabs = [app, ...prevTabs];
-        return updatedTabs.slice(0, 5);
-      });
+      updateRecentTabs(app);
     }
   };
 
   const checkPassword = (password) => {
     if (password === appPasswords[passwordRequiredForApp]) {
-      setPasswordRequiredForApp(null); // Clear the required password
-      setEnteredPassword(""); // Clear entered password
-      setPasswordError(""); // Clear any existing error
-      setCurrentScreen(passwordRequiredForApp); // Open the app
+      setPasswordRequiredForApp(null);
+      setEnteredPassword("");
+      setPasswordError("");
+      setCurrentScreen(passwordRequiredForApp);
+      updateRecentTabs(passwordRequiredForApp);
     } else {
-      setPasswordError("Incorrect password!"); // Set the error message
+      setPasswordError("Incorrect password!");
     }
+  };
+
+  const updateRecentTabs = (app) => {
+    setRecentTabs((prevTabs) => {
+      const updatedTabs = [app, ...prevTabs.filter((tab) => tab !== app)];
+      return updatedTabs.slice(0, 5);
+    });
+  };
+
+  const openVault = () => {
+    setCurrentScreen("vault");
   };
 
   return (
@@ -125,30 +130,26 @@ const App = () => {
             </div>
           )}
 
-          {/* Password Screen */}
           {currentScreen === "password" && (
             <PasswordPage
               checkPassword={checkPassword}
               enteredPassword={enteredPassword}
               setEnteredPassword={setEnteredPassword}
-              passwordError={passwordError} // Pass error message to PasswordPage
+              passwordError={passwordError}
             />
           )}
 
-          {currentScreen === "dialer" && (
-            <Dialer navigateHome={navigateHome} navigateBack={navigateBack} showRecentTabs={showRecentTabs} />
-          )}
+          {currentScreen === "dialer" && <Dialer />}
           {currentScreen === "gallery" && <Gallery />}
-          {currentScreen === "calendar" && <Calendar navigateHome={navigateHome} navigateBack={navigateBack} />}
-          {currentScreen === "messages" && <Messages navigateHome={navigateHome} navigateBack={navigateBack} />}
-          {currentScreen === "calculator" && <Calculator navigateBack={navigateBack} />}
-          {currentScreen === "news" && <News navigateHome={navigateHome} navigateBack={navigateBack} />}
-          {currentScreen === "clock" && <Clock navigateBack={navigateBack} />}
-          {currentScreen === "notes" && <Notes navigateBack={navigateBack} />}
-          {currentScreen === "vault" && <div className="screen vault">Vault Content</div>}
-          {currentScreen === "settings" && <Settings navigateBack={navigateBack} />}
+          {currentScreen === "calendar" && <Calendar />}
+          {currentScreen === "messages" && <Messages />}
+          {currentScreen === "calculator" && <Calculator navigateBack={navigateBack} openVault={openVault} />}
+          {currentScreen === "news" && <News />}
+          {currentScreen === "clock" && <Clock />}
+          {currentScreen === "notes" && <Notes />}
+          {currentScreen === "vault" && <Vault />}
+          {currentScreen === "settings" && <Settings />}
 
-          {/* Recent Tabs Screen */}
           {currentScreen === "recent-tabs" && (
             <div className="recent-tabs-page">
               <h2>Recent Tabs</h2>
@@ -162,7 +163,6 @@ const App = () => {
             </div>
           )}
 
-          {/* Navigation Bar */}
           <div className="nav-bar">
             <button onClick={navigateHome}>🏠</button>
             <button onClick={navigateBack}>⬅️</button>

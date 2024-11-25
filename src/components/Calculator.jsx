@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import './Calculator.css';
+import "./Calculator.css";
 
-const Calculator = () => {
+const Calculator = ({ openVault }) => {
   const [input, setInput] = useState(""); // State to track calculator input
 
   // Function to handle button clicks and append value to the current input
@@ -13,7 +13,12 @@ const Calculator = () => {
   const handleEvaluate = () => {
     try {
       const result = evaluateExpression(input);
-      setInput(result);
+      if (result === "788576") {
+        // If the result matches the "vault code," redirect to the vault
+        openVault(); // Call the function to navigate to Vault
+      } else {
+        setInput(result);
+      }
     } catch (error) {
       setInput("Error"); // Show error if invalid expression
     }
@@ -21,16 +26,13 @@ const Calculator = () => {
 
   // Simple function to evaluate basic arithmetic expressions (addition, subtraction, multiplication, division)
   const evaluateExpression = (expression) => {
-    // Remove any spaces from the input
-    expression = expression.replace(/\s+/g, "");
+    expression = expression.replace(/\s+/g, ""); // Remove any spaces
 
-    // Match numbers (including decimals) and operators
     const regex = /(\d+(\.\d*)?|\.\d+|[-+*/^])/g;
     let tokens = expression.match(regex);
 
     if (!tokens) throw new Error("Invalid expression");
 
-    // Helper function to apply operator
     const applyOperator = (left, operator, right) => {
       const leftNum = parseFloat(left);
       const rightNum = parseFloat(right);
@@ -49,16 +51,15 @@ const Calculator = () => {
       }
     };
 
-    // First handle multiplication and division (PEMDAS order of operations)
+    // Handle multiplication and division
     let index = 0;
     while (index < tokens.length) {
       if (tokens[index] === "*" || tokens[index] === "/") {
         const left = tokens[index - 1];
         const operator = tokens[index];
         const right = tokens[index + 1];
-
         const result = applyOperator(left, operator, right);
-        tokens.splice(index - 1, 3, result.toString()); // Replace left, operator, right with result
+        tokens.splice(index - 1, 3, result.toString());
       } else {
         index++;
       }
@@ -71,15 +72,13 @@ const Calculator = () => {
         const left = tokens[index - 1];
         const operator = tokens[index];
         const right = tokens[index + 1];
-
         const result = applyOperator(left, operator, right);
-        tokens.splice(index - 1, 3, result.toString()); // Replace left, operator, right with result
+        tokens.splice(index - 1, 3, result.toString());
       } else {
         index++;
       }
     }
 
-    // Return the final result
     return tokens[0];
   };
 
