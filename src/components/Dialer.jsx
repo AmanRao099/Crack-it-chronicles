@@ -4,9 +4,13 @@ import "../App.css";
 const Dialer = () => {
   const [phoneNumber, setPhoneNumber] = useState(""); // Phone number input
   const [callHistory, setCallHistory] = useState([
-    { id: 1, name: "John Doe", time: "10:30 AM", type: "incoming" },
-    { id: 2, name: "Jane Smith", time: "2:15 PM", type: "missed" },
-    { id: 3, name: "Alice Johnson", time: "4:45 PM", type: "missed" }
+    { id: 1, name: "Jane ", time: "10:32 AM", type: "missed" },
+    { id: 1, name: "Jane ", time: "10:31 AM", type: "missed" },
+    { id: 1, name: "Jane ", time: "10:30 AM", type: "missed" },
+    { id: 1, name: "Jane ", time: "10:29 AM", type: "missed" },
+    { id: 1, name: "Mom ", time: "10:20 AM", type: "missed" },
+    { id: 1, name: "Work ", time: "10:00 AM", type: "missed" },
+    { id: 3, name: "Alice Johnson ", time: "4:45 PM", type: "missed" }
   ]); // Sample call history with contacts
   const [showDialer, setShowDialer] = useState(false); // Toggle between call history and dialer view
   const [calling, setCalling] = useState(false); // Track whether a call is ongoing

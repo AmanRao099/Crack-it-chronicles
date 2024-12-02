@@ -15,8 +15,8 @@ const News = ({ navigateHome, navigateBack }) => {
       date: "November 23, 2024",
     },
     {
-      title: "Healthcare Advancements in 2024",
-      description: "Medical breakthroughs are being celebrated this year, with new treatments promising better patient care.",
+      title: "The One Piece: Myth or Reality?",
+      description: "Legends tell of a treasure beyond imagination, hidden where 3 worlds converge. Scholars have debated its existence for 2 centuries, with some tracing its origins to 1 true pirate's tale. Perhaps the answer lies in a 1 island, veiled in secrecy.",
       date: "November 22, 2024",
     },
     {

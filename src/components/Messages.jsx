@@ -5,8 +5,8 @@ const Messages = () => {
   const [selectedContact, setSelectedContact] = useState(null);
 
   const contacts = [
-    { name: "John Doe", lastMessage: "Hey, how are you?", messages: ["Hello!", "How's it going?"] },
-    { name: "Jane Smith", lastMessage: "See you tomorrow!", messages: ["Hi there!", "Sure, see you."] },
+    { name: "Jane", lastMessage: "really?", messages: ["Hi", "Hey, how are you?","am good","its been soo long ","yeah right","you seem to be really busy","well i wont deny that, lol","hey do u remember that hint we saw that day","yeah i remember it, i got the pic too","really ?"] },
+    { name: "Amy", lastMessage: "See you tomorrow!", messages: ["Hi there!", "Sure, see you."] },
     { name: "Alex Johnson", lastMessage: "Don't forget the meeting.", messages: ["Good morning!", "Noted, thanks!"] },
   ];
 

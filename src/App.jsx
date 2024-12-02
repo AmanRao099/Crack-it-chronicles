@@ -22,7 +22,7 @@ const App = () => {
   const [passwordError, setPasswordError] = useState("");
 
   const appPasswords = {
-    gallery: "1234",
+    gallery: "3211",
     messages: "5678",
     notes: "abcd",
   };
