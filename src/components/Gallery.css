@@ -97,7 +97,8 @@
 .close-button {
   position: absolute;
   top: 20px;
-  right: 110px;
+  right: 320px;
+  width: 100px;
   background-color: #ff0000;
   color: white;
   border: none;
