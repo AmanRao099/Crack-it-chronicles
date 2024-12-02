@@ -1,0 +1,94 @@
+/* General Styling */
+.contacts {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  /* Header */
+  .contacts-header {
+    background-color: #075e54;
+    padding: 15px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contacts-header h2 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+  }
+  
+  .search-bar {
+    margin-top: 10px;
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Contact List */
+  .contact-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+  }
+  
+  .contact-item {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .contact-item:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .contact-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .contact-name {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .contact-phone {
+    font-size: 16px;
+    color: #666;
+  }
+  
+  /* No Contacts Found */
+  .no-contacts {
+    text-align: center;
+    font-size: 18px;
+    color: #999;
+  }
+  
+  /* Hide Scrollbars */
+  .contact-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .contact-list {
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+    scrollbar-width: none; /* Firefox */
+  }
+  

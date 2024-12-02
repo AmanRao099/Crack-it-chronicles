@@ -12,6 +12,7 @@ import PasswordPage from "./components/PasswordPage";
 import Vault from "./components/Vault"; // Import Vault component
 import Settings from "./components/Settings";
 import "./App.css";
+import Contacts from "./components/Contacts";
 
 const App = () => {
   const [currentScreen, setCurrentScreen] = useState("home");
@@ -142,6 +143,7 @@ const App = () => {
           {currentScreen === "dialer" && <Dialer />}
           {currentScreen === "gallery" && <Gallery />}
           {currentScreen === "calendar" && <Calendar />}
+          {currentScreen === "contacts" && <Contacts />}
           {currentScreen === "messages" && <Messages />}
           {currentScreen === "calculator" && <Calculator navigateBack={navigateBack} openVault={openVault} />}
           {currentScreen === "news" && <News />}
