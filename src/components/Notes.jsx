@@ -3,8 +3,8 @@ import "./Notes.css"; // Optional: Add custom styling for the Notes component
 
 const Notes = () => {
   const [notes, setNotes] = useState([
-    { id: 1, content: "Meeting at 10 AM", timestamp: new Date().toLocaleString() },
-    { id: 2, content: "Buy groceries", timestamp: new Date().toLocaleString() },
+    { id: 1, content: "I am a path where choices are vast, some will mislead, others hold fast, pick me with care, for what you seek, not all clues are true, some are weak", timestamp: new Date().toLocaleString() },
+    { id: 2, content: "Scattered keys, a secret to find,Add them up, and you'll align. A sum of truths will show the way,To the vault where secrets lay", timestamp: new Date().toLocaleString() },
     { id: 3, content: "Doctor's appointment at 3 PM", timestamp: new Date().toLocaleString() },
   ]);
   const [newNote, setNewNote] = useState("");
