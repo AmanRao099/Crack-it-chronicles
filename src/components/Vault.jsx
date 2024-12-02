@@ -9,14 +9,14 @@ const Vault = () => {
         <div className="vault-note">
           <h3>Secret Note</h3>
           <p>
-            This is a private note stored securely in your vault. Keep it safe and don't share it with anyone!
+            I know the place, but I dont have the key for the treasure, I think i should check the rumour about the ghost
           </p>
         </div>
         <div className="vault-image">
           <h3>Hidden Image</h3>
           <img 
-            src="\public\images\image1.jpg" 
-            alt="Vault Secret" 
+            src="/images/image1.jpg" 
+           
             className="vault-img"
           />
         </div>
