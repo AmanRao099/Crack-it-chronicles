@@ -10,8 +10,8 @@ const News = ({ navigateHome, navigateBack }) => {
       date: "November 24, 2024",
     },
     {
-      title: "Global Markets Reach Record Highs",
-      description: "Stock markets around the world are seeing unprecedented highs as global economies recover.",
+      title: "Ghost Reveals Treasure Location",
+      description: "A ghost haunts, whispering clues to treasure hunters. Legend says she knows the hidden treasure's location but only guides the worthy. Will anyone be able to uncover the riches before the spirit's curse strikes?",
       date: "November 23, 2024",
     },
     {
