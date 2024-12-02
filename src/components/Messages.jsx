@@ -6,8 +6,8 @@ const Messages = () => {
 
   const contacts = [
     { name: "Jane", lastMessage: "really?", messages: ["Hi", "Hey, how are you?","am good","its been soo long ","yeah right","you seem to be really busy","well i wont deny that, lol","hey do u remember that hint we saw that day","yeah i remember it, i got the pic too","really ?"] },
-    { name: "Amy", lastMessage: "See you tomorrow!", messages: ["Hi there!", "Sure, see you."] },
-    { name: "Alex Johnson", lastMessage: "Don't forget the meeting.", messages: ["Good morning!", "Noted, thanks!"] },
+    { name: "Amy", lastMessage: "okkkk, See you tomorrow!", messages: ["Hi","Hey, did you figure out that thing we talked about?", "What thing?","The one you might’ve written down somewhere to remember. 😉","Ohhh, let me check!","okkkk, See you tomorrow!"] },
+    { name: "Alex Johnson", lastMessage: "Don't forget the meeting.", messages: ["Hey", "Hey, remember that girl who went missing while searching for treasure?","Yeah, they say she turned into a ghost, right?","Exactly. And if you start dancing at the ruins where she vanished, they say her spirit gives you hints about the treasure","Dancing? How does that work?","If you get the steps right, clues appear. It's like she guides you... but mess it up, and she might lead you somewhere dangerous.","That's wild! I’m in. Where do we start?"] },
   ];
 
   const handleBack = () => setSelectedContact(null);

@@ -15,7 +15,7 @@ const Vault = () => {
         <div className="vault-image">
           <h3>Hidden Image</h3>
           <img 
-            src="https://via.placeholder.com/300" 
+            src="\public\images\image1.jpg" 
             alt="Vault Secret" 
             className="vault-img"
           />
