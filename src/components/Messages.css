@@ -3,10 +3,9 @@
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f9f9f9;
     height: 100vh;
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    overflow-y: auto; /* Allow scrolling for the entire page */
 }
 
 .messages-header {
@@ -20,8 +19,9 @@
 /* Contact List */
 .contact-list {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: auto; /* Allow scrolling within the contact list */
     margin-bottom: 20px;
+    padding-right: 10px; /* Prevent content from hiding under scrollbar */
 }
 
 .contact-item {
@@ -70,7 +70,7 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-    position: relative;
+    margin-bottom: 20px; /* Add spacing for scrolling */
 }
 
 /* Chat Header Container */
@@ -123,10 +123,12 @@
 /* Chat Messages */
 .chat-messages {
     flex: 1;
-    overflow-y: auto;
+    overflow-y: auto; /* Allow scrolling within the chat messages */
     display: flex;
     flex-direction: column;
     gap: 10px;
+    padding-right: 10px; /* Prevent content from hiding under scrollbar */
+    margin-right: -10px; /* Balance padding to avoid scrollbar issues */
 }
 
 .message {
@@ -165,47 +167,29 @@
     right: 5px;
 }
 
-/* Remove Scrollbars */
+/* Scrollbar Styles */
 ::-webkit-scrollbar {
-    display: none;
+    width: 8px;
 }
 
+::-webkit-scrollbar-thumb {
+    background: #cfcfcf;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #b5b5b5;
+}
+
+::-webkit-scrollbar-track {
+    background: #f0f0f0;
+}
+
+/* Body Styles */
 body {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Allow scrolling for the entire body */
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: thin; /* Firefox */
 }
-/* Chat Messages */
-.chat-messages {
-    flex: 1;
-    overflow-y: auto; /* Enable vertical scrolling */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-right: 10px; /* Optional: Add padding to prevent content from touching the edge */
-}
-
-/* Chat Window (Maximized) */
-.chat-window {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 20px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Keep this for layout integrity */
-    position: relative;
-    max-height: calc(100vh - 40px); /* Ensure the chat window fits within the viewport */
-}
-
-/* General Styles */
-.messages {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9f9f9;
-    height: 100vh;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden; /* Only restrict body scrolling, not specific sections */
-}
-
