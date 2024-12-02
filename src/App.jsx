@@ -23,7 +23,7 @@ const App = () => {
 
   const appPasswords = {
     gallery: "3211",
-    messages: "5678",
+    messages: "7825",
     notes: "abcd",
   };
 
