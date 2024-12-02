@@ -13,7 +13,7 @@ const Calculator = ({ openVault }) => {
   const handleEvaluate = () => {
     try {
       const result = evaluateExpression(input);
-      if (result === "788576") {
+      if (result === "92510") {
         // If the result matches the "vault code," redirect to the vault
         openVault(); // Call the function to navigate to Vault
       } else {

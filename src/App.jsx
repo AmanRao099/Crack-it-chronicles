@@ -25,7 +25,7 @@ const App = () => {
   const appPasswords = {
     gallery: "3211",
     messages: "7825",
-    notes: "abcd",
+    notes: "81474",
   };
 
   const unlockPhone = () => {
