@@ -12,6 +12,7 @@ const Gallery = () => {
     { id: 4, src: '/images/image4.jpg', alt: 'Image 4' },
     { id: 5, src: '/images/image5.jpg', alt: 'Image 5' },
     { id: 6, src: '/images/image6.jpg', alt: 'Image 6' },
+    
     // More images if needed
   ];
 
